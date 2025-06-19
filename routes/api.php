@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Api\ApiResourcesController;
 use App\Http\Controllers\Api\AuditrailController;
+use App\Http\Controllers\Api\EmployeesController;
 use App\Http\Controllers\Api\ExamplesController;
+use App\Http\Controllers\Api\LeavesController;
 use App\Http\Controllers\Api\PrivilegesController;
 use App\Http\Controllers\Api\RolesController;
 use App\Http\Controllers\Api\Storage\FileController;
@@ -77,8 +79,25 @@ Route::middleware(['auth:api'])->prefix('v1')->group(function () {
 
     Route::prefix('users')->group(function () {
         Route::post('/', [UsersController::class, 'create']);
+        Route::get('/', [EmployeesController::class, 'index']);
         Route::get('{users}', [UsersController::class, 'read']);
         Route::put('{users}', [UsersController::class, 'update']);
+    });
+
+    Route::prefix('employees')->group(function () {
+        Route::post('/', [EmployeesController::class, 'create']);
+        Route::get('/', [EmployeesController::class, 'index']);
+        Route::get('/{id}', [EmployeesController::class, 'read']);
+        Route::put('/{id}', [EmployeesController::class, 'update']);
+        Route::put('/{id}/delete', [EmployeesController::class, 'softDelete']);
+    });
+
+    Route::prefix('leaves')->group(function () {
+        Route::post('/', [LeavesController::class, 'create']);
+        Route::get('/', [LeavesController::class, 'index']);
+        Route::get('/{id}', [LeavesController::class, 'read']);
+        Route::put('/{id}', [LeavesController::class, 'update']);
+        Route::put('/{id}/delete', [LeavesController::class, 'softDelete']);
     });
 });
 

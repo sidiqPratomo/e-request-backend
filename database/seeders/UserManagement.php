@@ -58,7 +58,7 @@ class UserManagement extends Seeder
             'first_name' => 'Cute',
             'last_name' => 'Administrator',
             'username' => 'admin',
-            'email' => 'admin@sagara.id',
+            'email' => 'admin@mail.co.id',
             'gender' => 'Male',
             'address' => 'Jakarta',
             'phone_number' => '0000',

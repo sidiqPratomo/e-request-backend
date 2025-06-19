@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Sagara-Laravel'),
+    'name' => env('APP_NAME', 'e-request'),
 
     /*
     |--------------------------------------------------------------------------
