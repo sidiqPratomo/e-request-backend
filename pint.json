@@ -1,0 +1,39 @@
+{
+  "preset": "laravel",
+  "rules": {
+    "@PSR12": true,
+    "class_definition": true,
+    "method_argument_space": true,
+    "ordered_imports": true,
+    "no_unused_imports": true,
+    "phpdoc_order": true,
+    "array_syntax": {
+      "syntax": "short"
+    },
+    "binary_operator_spaces": true,
+    "braces": {
+      "position_after_functions_and_oop_constructs": "next"
+    },
+    "indentation_type": true,
+    "line_ending": true,
+    "no_trailing_whitespace": true,
+    "simplified_null_return": true,
+    "no_extra_blank_lines": true,
+    "no_whitespace_in_blank_line": true,
+    "single_quote": true,
+    "concat_space": {
+      "spacing": "one"
+    },
+    "yoda_style": false,
+    "standardize_not_equals": true,
+    "whitespace_after_comma_in_array": true
+  },
+  "exclude": [
+    "nginx",
+    ".docker",
+    "mysql",
+    "node_modules",
+    "tests",
+    "vendor"
+  ]
+}

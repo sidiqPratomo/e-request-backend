@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    ports:
+      - 8081:80
+    networks:
+      - sagara-laravel
+    environment:
+      DB_HOST: mysql
+      DB_USER: root
+      DB_PASSWORD: password
+      DB_DATABASE: sagara-laravel
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+    ports:
+      - 33062:3306
+    networks:
+      - sagara-laravel
+    environment:
+      MYSQL_DATABASE: sagara-laravel
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 9001:80
+    volumes:
+      - .:/var/www/html
+      - ./nginx:/etc/nginx/conf.d
+    networks:
+      - sagara-laravel
+    depends_on:
+      - app
+    environment:
+      VIRTUAL_HOST: sagara-laravel.dev
+networks:
+  sagara-laravel:
+    driver: bridge

@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    build: 
+      context: .
+      args:
+        - APP_ENV=$APP_ENV
+    networks:
+      - sagara-laravel
+    ports:
+      - 5000:5000
+    volumes:
+      - sagara:/var/www/html/storage/app
+networks:
+  sagara-laravel:
+    driver: bridge
+
+volumes:
+  sagara:

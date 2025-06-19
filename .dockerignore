@@ -1,0 +1,7 @@
+.git/
+**/.gitignore*
+vendor/
+**/.DS_Store
+storage/app
+.env
+composer.lock
