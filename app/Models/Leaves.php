@@ -12,7 +12,7 @@ class Leaves extends Resources
     protected $table = 'leaves';
 
     protected $fillable = [
-        'user_id', 'employee_id', 'files', 'leave_date', 'return_date'
+        'user_id', 'employee_id', 'files', 'leave_date', 'return_date', 'leave_status'
     ];
 
     protected $reference = [];

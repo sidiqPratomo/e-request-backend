@@ -31,6 +31,9 @@ class LeavesController extends ApiResourcesController
 
             $fields = $this->processRequestFields($request);
 
+            $fields['user_id'] = auth()->id();
+            $fields['leave_status'] = 'pending'; 
+
             $this->model->fill($fields);
             $this->model->save();
 

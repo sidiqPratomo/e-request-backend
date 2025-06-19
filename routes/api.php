@@ -79,7 +79,6 @@ Route::middleware(['auth:api'])->prefix('v1')->group(function () {
 
     Route::prefix('users')->group(function () {
         Route::post('/', [UsersController::class, 'create']);
-        Route::get('/', [EmployeesController::class, 'index']);
         Route::get('{users}', [UsersController::class, 'read']);
         Route::put('{users}', [UsersController::class, 'update']);
     });
